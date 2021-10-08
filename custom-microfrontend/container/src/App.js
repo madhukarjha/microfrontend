@@ -25,6 +25,7 @@ const Home = () => (
     <p>Rendered by Container</p>
   </>
 );
+const getRandomRestaurantId = () => Math.floor(Math.random() * 100) + 1;
 function App() {
   return (
     <BrowserRouter>
@@ -50,7 +51,7 @@ function App() {
               color: "#282c34",
               fontSize: 20,
             }}
-            to="/subapp1"
+            to={`/subapp1/${getRandomRestaurantId()}`}
           >
             SubApp1
           </NavLink>
@@ -72,7 +73,7 @@ function App() {
 
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/subapp1" render={() => <App1 />} />
+        <Route path="/subapp1/:param1" render={() => <App1 />} />
         <Route path="/subapp2" render={() => <App2 />} />
       </Switch>
     </BrowserRouter>

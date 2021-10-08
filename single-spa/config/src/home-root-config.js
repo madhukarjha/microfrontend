@@ -11,16 +11,14 @@ import { registerApplication, start } from "single-spa";
 
 registerApplication({
   name: "@home/samplemfs",
-  
+
   app: () => System.import("@home/samplemfs"),
   activeWhen: ["/"],
   customProps: (name, location) => {
-    return { sampleprops: "sample text for props", };
-  }
+    return { sampleprops: "sample text for props" };
+  },
 });
 
 start({
   urlRerouteOnly: true,
 });
-
-
